@@ -1,0 +1,368 @@
+Here is an updated build that balances clean readability with a modern, high-end sports aesthetic.
+
+I've added a dedicated **Fall Schedule & Events** tab structured with clean cards. Right now, it clearly marks dates as *"TBD / Finalizing Fall Slate,"* but it gives you pre-built slots so that once tournaments are locked in, you can just paste in the dates and opponents without needing to redesign the site!
+
+---
+
+### Page Layout Preview
+
+Here is a quick visual layout of how the page will render when someone visits **`friendswoodditchcrickets.com`**:
+
+```text
++-----------------------------------------------------------------+
+|                    [ DITCH CRICKETS LOGO ]                      |
+|                  FRIENDSWOOD DITCH CRICKETS                     |
+|                 12U FIT • FALL SEASON 2026                      |
++-----------------------------------------------------------------+
+|  ⚾ ALERT: 12U TRYOUTS ANNOUNCED — AUGUST 23 @ 5:00 PM          |
++-----------------------------------------------------------------+
+|  TRYOUT DETAILS                   | HEAD COACH                  |
+|  • Date: August 23 @ 5:00 PM      | • Head Coach:               |
+|  • Field: Renwick Park (#9)       |   Jonathon Dillard          |
+|  • Eligibility: 10U & 11U Spring  |                             |
++-----------------------------------------------------------------+
+|  SUMMER HIGHLIGHTS                                              |
+|  [ Full-width Summer Team Photo Placeholder ]                   |
++-----------------------------------------------------------------+
+|  FALL SEASON SCHEDULE (PREVIEW)                                 |
+|  +---------------------------+  +----------------------------+  |
+|  | PRACTICE SCHEDULE         |  | TOURNAMENT SLATE           |  |
+|  | Every Sunday (Times TBD)  |  | Tournament #1 - TBD        |  |
+|  | Renwick Park Fields       |  | Tournament #2 - TBD        |  |
+|  +---------------------------+  +----------------------------+  |
++-----------------------------------------------------------------+
+|  READY TO TRY OUT? (RSVP BOX)                                   |
+|  Contact Coach Kevin Wild to RSVP with Name, Positions, & DOB   |
+|  [ BUTTON: Email Coach Kevin ]                                  |
++-----------------------------------------------------------------+
+
+```
+
+---
+
+### Updated Code (`index.html`)
+
+Copy and paste this exact code into your `index.html` file on your Chromebook tomorrow:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendswood Ditch Crickets Baseball | 12U FIT</title>
+    <style>
+        :root {
+            --navy-dark: #001f4d;
+            --navy-main: #002b66;
+            --blue-accent: #1a5296;
+            --light-bg: #f4f7fa;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --gold-accent: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-main) 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 1rem 2.5rem;
+            border-bottom: 4px solid var(--blue-accent);
+        }
+
+        .header-logo {
+            max-width: 170px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-top: 0.25rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -1.5rem auto 3rem;
+            padding: 0 1.25rem;
+        }
+
+        .hero-banner {
+            background-color: var(--blue-accent);
+            color: #ffffff;
+            text-align: center;
+            padding: 1.25rem;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h2 {
+            color: var(--navy-main);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .detail-box {
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--navy-main);
+        }
+
+        .detail-box label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-box p {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .team-photo-container {
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 0.75rem;
+        }
+
+        .team-photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .schedule-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.25rem;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .schedule-card h3 {
+            font-size: 1.05rem;
+            color: var(--navy-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-card ul {
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .schedule-card li {
+            margin-bottom: 0.4rem;
+            color: var(--text-dark);
+        }
+
+        .badge-tbd {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .rsvp-section {
+            background: linear-gradient(135deg, var(--navy-main) 0%, var(--navy-dark) 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .rsvp-section h2 {
+            color: #ffffff;
+            border: none;
+            justify-content: center;
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--navy-main);
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 1.25rem;
+            transition: transform 0.1s ease, background-color 0.2s ease;
+        }
+
+        .rsvp-btn:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Ensure your logo image is named logo.png in the same folder -->
+        <img src="logo.png" alt="Friendswood Ditch Crickets Logo" class="header-logo">
+        <h1>Friendswood Ditch Crickets</h1>
+        <p>12U FIT (Friendswood Invitational Team) • Fall 2026</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Announcement Banner -->
+        <div class="hero-banner">
+            ⚾ Open Tryouts Announced for Fall 2026!
+        </div>
+
+        <!-- Tryout Details -->
+        <section class="card">
+            <h2>Tryout Information</h2>
+            <div class="details-grid">
+                <div class="detail-box">
+                    <label>Date & Time</label>
+                    <p>August 23, 2026 @ 5:00 PM</p>
+                </div>
+                <div class="detail-box">
+                    <label>Location</label>
+                    <p>Renwick Park (Field #9)</p>
+                </div>
+                <div class="detail-box">
+                    <label>Eligibility</label>
+                    <p>10U & 11U Spring Players</p>
+                </div>
+                <div class="detail-box">
+                    <label>Head Coach</label>
+                    <p>Jonathon Dillard</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summer Team Photo -->
+        <section class="card">
+            <h2>Summer Season Highlights</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Building off a great summer run on the dirt!</p>
+            <div class="team-photo-container">
+                <!-- Ensure your team photo is named summer-team-photo.jpg in the same folder -->
+                <img src="summer-team-photo.jpg" alt="Ditch Crickets Summer Team Photo">
+            </div>
+        </section>
+
+        <!-- Fall Schedule Hub -->
+        <section class="card">
+            <h2>Fall Schedule & Events</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;">
+                Official practice schedules and tournament dates will be posted here once finalized.
+            </p>
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>Practice Schedule</h3>
+                    <ul>
+                        <li><strong>Day:</strong> Sundays</li>
+                        <li><strong>Location:</strong> Renwick Park</li>
+                        <li><strong>Time:</strong> <span class="badge-tbd">TBD</span></li>
+                    </ul>
+                </div>
+                <div class="schedule-card">
+                    <h3>Tournament Slate</h3>
+                    <ul>
+                        <li><strong>Events:</strong> 3-4 Fall Tournaments</li>
+                        <li><strong>Primary Venues:</strong> Local / League City</li>
+                        <li><strong>Dates:</strong> <span class="badge-tbd">Finalizing Slate</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Box -->
+        <section class="rsvp-section">
+            <h2>Ready to Try Out?</h2>
+            <p style="color: #cbd5e1; margin-top: 0.5rem;">Please RSVP to Coach Kevin Wild prior to August 23rd.</p>
+            
+            <div style="margin-top: 1rem; font-size: 0.95rem;">
+                <p><strong>Call / Text:</strong> (502) 802-6429</p>
+                <p><strong>Email:</strong> kevin.wild@gmail.com</p>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
+                    Please include: Player Name, Primary/Secondary Positions, & Birthdate.
+                </p>
+            </div>
+
+            <a href="mailto:kevin.wild@gmail.com?subject=Ditch%20Crickets%20Tryout%20RSVP" class="rsvp-btn">
+                RSVP via Email
+            </a>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Friendswood Ditch Crickets Baseball | Friendswood, TX</p>
+    </footer>
+
+</body>
+</html>
