@@ -8,6 +8,7 @@
     :root {
       --primary: #0b2341;
       --accent: #1e40af;
+      --highlight: #dbeafe;
       --light-bg: #f8fafc;
       --card-bg: #ffffff;
       --text-main: #1e293b;
@@ -25,7 +26,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--light-bg);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     header {
@@ -58,60 +59,107 @@
       padding: 2rem 1rem;
     }
 
-    .banner {
+    .promo-banner {
       background: linear-gradient(135deg, #1e3a8a, #0b2341);
       color: #fff;
       text-align: center;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
+      padding: 1.75rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 10px rgba(11, 35, 65, 0.15);
     }
 
-    .banner h2 {
-      font-size: 1.6rem;
+    .promo-banner h2 {
+      font-size: 1.55rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .promo-banner p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     .section-title {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--primary);
       border-bottom: 3px solid var(--primary);
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
     }
 
-    .grid {
+    .stats-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.25rem;
     }
 
-    .card {
+    .stat-card {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
+      border-top: 4px solid var(--primary);
       border-radius: 8px;
-      padding: 1.25rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1.1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     }
 
-    .card h3 {
-      font-size: 0.9rem;
+    .stat-card .number {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .stat-card .label {
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--text-muted);
-      margin-bottom: 0.5rem;
+      margin-top: 0.25rem;
+      font-weight: 600;
     }
 
-    .card p {
-      font-size: 1.15rem;
-      font-weight: 600;
+    .article-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .article-card h3 {
+      font-size: 1.35rem;
       color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .article-card h3:first-child {
+      margin-top: 0;
+    }
+
+    .article-card p {
+      margin-bottom: 1.15rem;
+      font-size: 1.05rem;
+    }
+
+    .article-card ul {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+    }
+
+    .article-card li {
+      margin-bottom: 0.6rem;
+      font-size: 1.02rem;
     }
 
     .contact-box {
       background-color: var(--card-bg);
       border: 2px solid var(--primary);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 1.75rem;
       text-align: center;
       margin-top: 2rem;
@@ -120,17 +168,12 @@
     .contact-box h3 {
       font-size: 1.4rem;
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
-    .contact-box ul {
-      list-style: none;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-box li {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+    .contact-box p {
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
     }
 
     .btn {
@@ -156,6 +199,15 @@
       border-top: 1px solid var(--border-color);
       margin-top: 3rem;
     }
+
+    @media (max-width: 600px) {
+      .article-card {
+        padding: 1.4rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -163,65 +215,72 @@
   <header>
     <img src="logo.png.jpg" alt="Friendswood Ditch Crickets Logo" />
     <h1>Friendswood Ditch Crickets</h1>
-    <p>12U FIT (Friendswood Invitational Team) • Fall 2026</p>
+    <p>12U FIT (Friendswood Invitational Team) • Friendswood, TX</p>
   </header>
 
   <main class="container">
     
-    <div class="banner">
-      <h2>⚾ Open Tryouts Announced for Fall 2026!</h2>
+    <div class="promo-banner">
+      <h2>⚾ Gearing Up for Spring & Summer 2027!</h2>
+      <p>The coaching staff is actively finalizing our Spring and Summer tournament plans. Keep an eye on this page—<strong>Spring 2027 Tryout dates and details will be announced soon!</strong></p>
     </div>
 
-    <h2 class="section-title">Tryout Information</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Date & Time</h3>
-        <p>Sunday, August 30, 2026<br>1:00 PM – 3:00 PM</p>
-      </div>
-      <div class="card">
-        <h3>Location</h3>
-        <p>Renwick Park (Field #9)</p>
-      </div>
-      <div class="card">
-        <h3>Eligibility</h3>
-        <p>10U & 11U Spring Players</p>
-      </div>
-      <div class="card">
-        <h3>Coaching Staff</h3>
-        <p>Kevin Wild, Matt Hermes, & Kyle Kissell</p>
-      </div>
-    </div>
+    <h2 class="section-title">Fall 2026 Season Recap: Bats, Speed & Grit</h2>
 
-    <h2 class="section-title">Fall Schedule & Expectations</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Practice Schedule</h3>
-        <p>Sundays @ Renwick Park<br><span style="font-size: 0.95rem; font-weight: normal; color: var(--text-muted);">Time: TBD</span></p>
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="number">.383</div>
+        <div class="label">Team Batting Avg</div>
       </div>
-      <div class="card">
-        <h3>Tournament Slate</h3>
-        <p>2–3 Fall Tournaments<br><span style="font-size: 0.95rem; font-weight: normal; color: var(--text-muted);">Venues: Local / League City</span></p>
+      <div class="stat-card">
+        <div class="number">.517</div>
+        <div class="label">On-Base Pct</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">91</div>
+        <div class="label">Runs Scored</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">63</div>
+        <div class="label">Stolen Bases</div>
       </div>
     </div>
 
-    <div class="contact-box">
-      <h3>Ready to Try Out?</h3>
-      <p style="margin-bottom: 1rem;">Please RSVP to <strong>Coach Kevin Wild</strong> prior to August 30th.</p>
+    <article class="article-card">
+      <h3>A Relentless Offense &amp; Chaos on the Basepaths</h3>
+      <p>
+        The 12U Friendswood Ditch Crickets wrapped up an exciting, fast-paced Fall 2026 campaign defined by explosive innings, aggressive baserunning, and relentless plate discipline. Across 10 fall games and scrimmages, the Crickets averaged over <strong>9 runs per contest</strong>, piling up 79 hits—including 22 doubles, a triple, and 4 home runs—while drawing 52 walks to post a massive <strong>.517 team on-base percentage</strong>.
+      </p>
+      <p>
+        Once aboard, the Ditch Crickets turned up the pressure, swiping <strong>63 bases at a 95.5% success rate</strong>. Leading the charge on the basepaths were <strong>Hank Huter</strong> (11-for-11 in steals, 16 runs scored), <strong>Jarrett Dillard</strong> (10-for-10, 9 walks), <strong>Devyn Nguyen</strong> (.600 AVG, .733 OBP, 8 steals), <strong>Lincoln Elam</strong> (.458 AVG, 11 RBIs, 8 steals), and <strong>Grant Towler</strong> (7-for-7 in steals).
+      </p>
+
+      <h3>Top Moments From the Fall Slate</h3>
       <ul>
-        <li><strong>Call / Text:</strong> (346) 800-7579</li>
-        <li><strong>Email:</strong> kevin.wild@gmail.com</li>
-        <li style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.75rem;">
-          <em>Please include: Player Name, Primary/Secondary Positions (P/S), & Birthdate.</em>
+        <li>
+          <strong>Opening Statement (Oct. 24):</strong> The Crickets kicked off tournament play by exploding for 6 runs in the first inning—fueled by RBI doubles from Jarrett Dillard, Simon Kissell, and Devyn Nguyen—and hung on behind strong mound work from Colin Wild and Cason Cox to edge Black Sox Nolan, 7–6.
+        </li>
+        <li>
+          <strong>Power Surge &amp; Scrimmage Fireworks (Nov. 1 – Nov. 12):</strong> The bats caught fire during the November slate. Colin Wild drove in 5 runs in a 10-run third inning to power a 15–6 win over the Houston Bengals. One week later, Lincoln Elam crushed a two-run homer to right field while Grant Towler and Colin Wild each collected 3 hits in a 13–10 victory over the Space City Trash Pandas, followed by a 10–8 scrimmage victory over the Bayside Bananas sparked by a 5-run third-inning rally.
+        </li>
+        <li>
+          <strong>Long Balls &amp; Heartbreakers (Oct. 25 &amp; Nov. 21):</strong> Grant Towler went a perfect 3-for-3 with a center-field blast against SoCo Show VI and added another moonshot to center against Bayside Bananas later in the month. In one of the wildest games of the fall, Gaige Atessis delivered a clutch 3-run double after a 7-pitch battle to put the Crickets up 13–8 against STX Coyotes before falling in a 14–13 walk-off thriller.
+        </li>
+        <li>
+          <strong>Dominant Finale Win (Nov. 22):</strong> The Crickets closed out their tournament weekend in style with a 14–4 rout of the Waller County Underdawgs. Gaige Atessis went 3-for-3 with a solo home run, Hank Huter added 3 hits and 2 RBIs, pickup standout Samuel Beran drove in 4 runs, and Lincoln Elam struck out 4 over three innings of work without allowing an earned run.
         </li>
       </ul>
-      <a href="mailto:kevin.wild@gmail.com?subject=12U%20Ditch%20Crickets%20Tryout%20RSVP" class="btn">RSVP via Email</a>
-    </div>
 
-  </main>
+      <h3>Thank You to Our Players, Families &amp; Pickup Crew</h3>
+      <p>
+        From turning 6 double plays in the field to battling through every inning, our core roster—alongside fall pickup contributors <strong>Samuel Beran</strong> (.600 AVG, 4 doubles), <strong>Kaiden Lukens</strong> (.750 AVG, 4 RBIs), and <strong>Nicholas Lewin</strong>—showed tremendous growth all season long. A huge thank you to our parents, families, and Coaching Staff (<strong>Kevin Wild, Matt Hermes, and Kyle Kissell</strong>) for making Fall 2026 a memorable run on the dirt.
+      </p>
+    </article>
 
-  <footer>
-    <p>&copy; 2026 Friendswood Ditch Crickets Baseball | Friendswood, TX</p>
-  </footer>
-
-</body>
-</html>
+    <div class="contact-box">
+      <h3>Interested in Spring / Summer 2027?</h3>
+      <p>
+        We are currently planning our Spring and Summer 2027 tournament schedule and roster. Check back soon for official Spring Tryout dates, or reach out to Coach Kevin Wild to get on our contact list!
+      </p>
+      <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">
+        <strong>Coach Kevin Wild:</strong> (346) 800-7579 &nbsp;|&nbsp;
